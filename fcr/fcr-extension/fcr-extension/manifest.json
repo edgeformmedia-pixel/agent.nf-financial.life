@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "FCR AIL",
+  "version": "2.1.0",
+  "description": "One click: opens the Free Caller Registry form, fills it, and drops you on the verification code box.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": ["https://*.freecallerregistry.com/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://*.freecallerregistry.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_title": "FCR AIL — register number" },
+  "options_page": "setup.html"
+}
